@@ -1,0 +1,187 @@
+---
+title: "Fixing fixation"
+author: Pierce Edmiston
+output:
+  bookdown::pdf_document2:
+    toc: no
+    keep_tex: yes
+    number_sections: no
+---
+```{r team-structures-config, include=FALSE}
+library(knitr)
+opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, cache = TRUE)
+read_chunk("analyses.R")
+```
+```{r fixing-fixation, include=FALSE}
+```
+
+In Experiment 2, we compared the performance of four generations of diachronic
+collaboration via vertical transmission---inheriting from someone else---to the
+performance of isolated individuals given four separate sessions (Fig.
+\@ref(fig:team-structures-selfother)). Participants in the isolated condition
+came back to the experiment for four separate sessions, each 25 minutes long.
+Sessions were scheduled at least one day apart. At each session after the
+first, these participants inherited the recipes for the tools they had created
+at the end of the previous session. Thus, in this experiment, both diachronic
+and isolated individuals started each session recreating inherited tools before
+extending these to discover new tools.
+
+(ref:team-structures-selfother) Problem solving strategies compared in Experiment 1.
+
+```{r team-structures-selfother, fig.width=6, fig.cap="(ref:team-structures-selfother)"}
+crotchet::draw_graphviz("team-structures-selfother", package = "totems")
+```
+
+## Results {-}
+
+We start by reporting differences in the total number of tools discovered using
+either a diachronic or isolated strategy. To foreshadow our results, we found
+that, against our predictions, isolated individuals given four sessions were
+able to accumulate more tools than diachronic teams given the same total amount
+of time. The remaining analyses examine why an isolated strategy was more
+effective than a diachronic strategy. We show that isolated individuals were
+able to recreate the tools they had discovered previously much more quickly
+than diachronic participants. In investigating why an isolated strategy is more
+effective, we uncover a benefit to diachronic collaboration in remediating the
+costs of fixation suffered by isolated individuals.
+
+### Total tools {-}
+
+The number of innovations discovered in each diachronic generation and isolated
+session are shown in Fig. \@ref(fig:innovations-by-generation-selfother). After
+a single 25 minute session, there was no difference between diachronic and
+isolated participants, `r exp1$gen1_innovations`. This result was expected,
+since after a single session, there was no difference between participants
+randomly assigned to either strategy. For diachronic participants, each
+new generation was able to discover `r exp1$tools_per_diachronic_gen` more
+tools than they inherited, `r exp1$tools_per_diachronic_gen_stats`. However,
+isolated individuals discovered `r exp1$tools_per_isolated_gen` more tools than
+they inherited at each new session, `r exp1$tools_per_isolated_gen_stats`. That
+is, an isolated strategy proved more effective than a diachronic strategy over
+generations, `r exp1$innovations_by_inheritance_slope`. After four generations
+of diachronic collaboration compared to four sessions of isolated labor, an
+isolated strategy was more effective, `r exp1$gen4_innovations`.
+
+(ref:innovations-by-generation-selfother) Innovations discovered by diachronic
+and isolated strategies. Each thin line is a diachronic team (**left**) or an
+isolated individual (**right**). Thick lines with error bars show model
+predictions with ±1 standard error.
+
+```{r innovations-by-generation-selfother, fig.width=5, fig.cap="(ref:innovations-by-generation-selfother)"}
+innovations_by_generation_plot
+```
+
+### Guessing strategy {-}
+
+In order to determine why an isolated strategy was more effective than a
+diachronic strategy, we asked whether isolated individuals employed a more
+efficient guessing strategy than diachronic participants. As in Experiment 1, we
+measured both the proportion of redundant guesses and unique guesses made by
+participants in either strategy, corresponding to an inefficient and efficient
+guessing strategy, respectively. Our results are shown in Fig.
+\@ref(fig:guessing-strategy-by-generation).
+
+Although participants in the isolated strategy discovered more tools after
+four sessions than diachronic teams after four generations, they did not engage
+in a more efficient guessing strategy. Unlike in Experiment 1, diachronic
+participants did not guess a lower proportion of redundant guesses compared to
+isolated individuals, `r exp1$prop_redundant_strategy`. For participants in both
+strategies, the proportion of redundant guesses decreased over generations and
+sessions, `r exp1$prop_redundant_gen`. However, this decrease was not affected
+by strategy, `r exp1$prop_redundant_inter`.
+
+For the proportion of unique guesses, there were no differences between
+participants in either strategy, `r exp1$prop_unique_strategy`, or
+over generations `r exp1$prop_unique_gen`. The change in proportion
+of unique guesses over generations was not affected by strategy,
+`r exp1$prop_unique_inter`.
+
+(ref:guessing-strategy-by-generation) Proportion of guesses by participants in
+diachronic and isolated conditions over generations.
+
+```{r guessing-strategy-by-generation, fig.width=5, fig.cap="(ref:guessing-strategy-by-generation)"}
+prop_guess_types_selfother_plot
+```
+
+If participants in the isolated strategy did not guess more efficiently or
+less redundantly than participants in the diachronic strategy, how then were they
+able to accumulate more tools than participants in the diachronic condition? To
+answer this question, we investigated the time spent recreating the inherited
+tools versus time spent inventing new tools.
+
+### Learning times {-}
+
+Participants who inherited an innovation record from a previous generation or
+from a previous session took on average `r exp1$mean_learning_time` minutes of
+the 25 minute session (`r exp1$prop_learning_time`%) to recreate the inherited
+tools. We refer to this portion of the experiment we refer to as the learning
+period.
+
+We found a large difference between diachronic and isolated individuals in the
+length of the learning period. Isolated individuals returning for multiple
+sessions took significantly less time to recreate the tools they had invented
+at the end of their previous session as compared to diachronic participants who
+were playing the Totems game for the first time, `r exp1$learning_times_inter`
+(Fig. \@ref(fig:diachronic-v-isolated-inheritance)A).
+
+### Guesses for new discoveries {-}
+
+After the learning period ends, participants then had to discover new tools,
+not inherited from an ancestor or a previous session. In this section, we
+compared the effectiveness of isolated and diachronic participants in
+discovering the first new tool, beyond what was inherited.
+
+We found that diachronic participants were able to discover the first new tool
+with fewer guesses than isolated participants (Fig.
+\@ref(fig:diachronic-v-isolated-inheritance)B). On average, participants in both diachronic
+and isolated strategies took `r exp1$first_discovery_mean` guesses to discover
+a new tool not inherited from a previous participant or previous session. Diachronic
+participants discovered a new tool in `r exp1$first_discovery_beta` fewer guesses
+than isolated individuals, `r exp1$first_discovery_stats`. This difference increased
+over generations, `r exp1$first_discovery_by_gen_stats`, indicating that an isolated
+strategy was becoming more fixated on previous incorrect solutions. In contrast,
+the cost of the first new tool among diachronic collaborators was relatively stable
+across generations, even as the number of inherited tools increased.
+
+(ref:diachronic-v-isolated-inheritance) Costs and benefits of diachronic
+inheritance relative to individual inheritance. **A.** Learning times by
+strategy. Learning time refers to the number of minutes it took to recreate the
+inherited items. For diachronic participants (**left**), learning time scaled
+linearly with generations, but for isolated participants returning for multiple
+sessions (**right**), learning times were stable across sessions. **B**. Number
+of guesses required to discover the first new tool each session. For diachronic
+participants (**left**), the first new tool was stable across generations, but
+for isolated participants (**right**) the cost increased with subsequent
+sessions.
+
+```{r diachronic-v-isolated-inheritance, fig.height=6, fig.width=5, fig.cap="(ref:diachronic-v-isolated-inheritance)"}
+gridExtra::grid.arrange(
+  learning_times_plot + ggtitle("A"),
+  first_discovery_by_generation_plot + ggtitle("B"),
+  ncol = 1
+)
+```
+
+## Discussion {-}
+
+In Experiment 2, we found that isolated individuals given four sessions were
+able to outperform diachronic individuals each given only 25 minutes. However,
+an isolated strategy did not result in more efficient problem solving than
+a diachronic strategy. Isolated participants did not guess less redundantly, or
+generate a higher proportion of unique guesses, than diachronic participants.
+Instead, isolated participants, given multiple sessions, were able to more
+quickly recreate the tools they had discovered in their previous session, thus
+giving them more time to discover new tools. In contrast, for diachronic
+participants, recreating the tools inherited from their ancestor took longer
+with each generation, leaving less time for new tool discovery.
+
+We obtained some evidence in support of our hypothesis that a diachronic
+strategy may promote a more efficient form of problem solving. We found that
+isolated individuals were more likely to become fixated on previous, incorrect
+solutions. These fixation effects extended over multiple sessions, causing the
+performance of some isolated individuals to stagnate, especially for the first
+new tool discovered in each session. Diachronic participants, however, were not
+impacted by fixation to previous guesses, and were more easily able to move
+beyond the solutions they inherited to discover new solutions. These results
+reveal a novel benefit to vertical transmission in relieving the pressures that
+may slow individual problem solvers down.

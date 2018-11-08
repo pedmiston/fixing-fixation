@@ -1,0 +1,8 @@
+*_cache/
+*_files/
+*.tex
+*.pdf
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
