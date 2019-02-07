@@ -10,12 +10,16 @@ output:
 ```{r team-structures-config, include=FALSE}
 library(knitr)
 opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, cache = TRUE)
-read_chunk("analyses.R")
-```
-```{r fixing-fixation, include=FALSE}
+read_chunk("R/exp1.R")
+read_chunk("R/exp2.R")
 ```
 
-In Experiment 2, we compared the performance of four generations of diachronic
+# Experiment 1
+
+```{r exp1, include=FALSE}
+```
+
+In Experiment 1, we compared the performance of four generations of diachronic
 collaboration via vertical transmission---inheriting from someone else---to the
 performance of isolated individuals given four separate sessions (Fig.
 \@ref(fig:team-structures-selfother)). Participants in the isolated condition
@@ -164,7 +168,7 @@ gridExtra::grid.arrange(
 
 ## Discussion {-}
 
-In Experiment 2, we found that isolated individuals given four sessions were
+In Experiment 1, we found that isolated individuals given four sessions were
 able to outperform diachronic individuals each given only 25 minutes. However,
 an isolated strategy did not result in more efficient problem solving than
 a diachronic strategy. Isolated participants did not guess less redundantly, or
@@ -185,3 +189,20 @@ impacted by fixation to previous guesses, and were more easily able to move
 beyond the solutions they inherited to discover new solutions. These results
 reveal a novel benefit to vertical transmission in relieving the pressures that
 may slow individual problem solvers down.
+
+# Experiment 2
+
+```{r exp2, include=FALSE}
+```
+
+## Results
+
+```{r yoked-by-generation}
+yoked_by_generation_plot
+```
+
+# Experiment 3
+
+# General Discussion
+
+# References
